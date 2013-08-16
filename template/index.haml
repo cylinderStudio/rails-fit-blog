@@ -1,0 +1,64 @@
+%html
+  %head
+    %title Rails Fit Blog
+    %link{href: "css/stylesheet.css", media: "all", rel: "stylesheet", type: "text/css"}/
+  %body
+    #wrapper
+      %header
+        #masthead
+          %h1 Rails Fit Blog
+          Another blog
+        %nav
+          %ul
+            %li.selected
+              %a{href: "#"} Home
+            %li
+              %a{href: "#"} About
+        #cubes
+          .cube
+            walk
+          /
+          .cube
+            run
+          /
+          .cube
+            work
+          /
+          .cube
+            play
+      #content
+        #articles
+          %article
+            %h2
+              %a{href: "#"} Article title
+            .timestamp
+              %time{datetime: "2012-02-17"} February 17, 2012
+            %p Paragraph of text.
+            %p Second paragraph of text.
+          %article
+            %h2
+              %a{href: "#"} Article title
+            .timestamp
+              %time{datetime: "2012-02-17"} February 17, 2012
+            %p Paragraph of text.
+            %p Second paragraph of text.
+        %aside
+          %h3 Heading
+          %ul
+            %li
+              %a{href: "#"} Nav 1
+            %li
+              %a{href: "#"} Nav 2
+            %li
+              %a{href: "#"} Nav 3
+          %h3 Heading
+          %ul
+            %li
+              %a{href: "#"} Nav 1
+            %li
+              %a{href: "#"} Nav 2
+            %li
+              %a{href: "#"} Nav 3
+      %footer
+        &copy 2013 G. Martin
+    %script{src: "js/script.js", :type => "text/javascript"}

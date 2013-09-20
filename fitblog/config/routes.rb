@@ -1,6 +1,9 @@
 Fitblog::Application.routes.draw do
   get "dashboard/index"
+  get "dashboard", to: "dashboard#index"
   get "blog/index"
+  get "blog", to: "blog#index"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -16,7 +19,8 @@ Fitblog::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :sessions, :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   # Example resource route with options:
   #   resources :products do

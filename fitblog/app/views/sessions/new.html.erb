@@ -1,20 +1,20 @@
 <h1>Login</h1>
 
 <% if flash[:alert] %>
-	<div><%= flash[:alert] %></div>
+  <div><%= flash[:alert] %></div>
 <% end %>
 
 <%= form_tag sessions_path, method: :post do %>
 <table>
-	<tr>
-		<td>Email: </td><td><%= text_field_tag :email %></td>
-	</tr>
-	<tr>
-		<td>Password: </td><td><%= password_field_tag :password %></td>
-	</tr>
-	<tr>
-		<td colspan="2"><%= submit_tag 'Sign In' %></td>
-	</tr>
+  <tr>
+    <td>Email: </td><td><%= text_field_tag :email %></td>
+  </tr>
+  <tr>
+    <td>Password: </td><td><%= password_field_tag :password %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%= submit_tag 'Sign In' %></td>
+  </tr>
 </table>
 <% end %>
 

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-	
+	def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -9,6 +12,14 @@ class UsersController < ApplicationController
   	if @user.save
       redirect_to root_path
   	end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = 'User deleted.'
+      render 'index'
+    end
   end
   
   private

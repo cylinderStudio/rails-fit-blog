@@ -1,15 +1,17 @@
 Fitblog::Application.routes.draw do
+  get "about/index"
+  get "about", to: "about#index"
   get "dashboard/index"
   get "dashboard", to: "dashboard#index"
-  get "blog/index"
-  get "blog", to: "blog#index"
+  get "posts/index"
+  get "posts", to: "posts#index"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'blog#index'
+  root 'posts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -20,7 +22,8 @@ Fitblog::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :destroy]
+  resources :posts
 
   # Example resource route with options:
   #   resources :products do

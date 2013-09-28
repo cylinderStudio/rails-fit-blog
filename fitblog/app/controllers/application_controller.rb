@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
   
+  # prevent from being used as actions on other contollers (called by paths/routes)
   private
   
     def current_user

@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fitblog</title>
+  <title>FitBit Blog (on Rails)</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div id="wrapper">
+		<header>
+			<div id="masthead">
+				<h1>FitBit Blog</h1>
+				(On Rails)
+			</div>
+			<nav>
+				<ul>
+					<li class="selected"><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Dashboard', dashboard_path %></li>
+					<li><%= link_to 'About', about_path %></li>
+				</ul>
+			</nav>
+			<div id="cubes">
+				<div class="cube">
+				walk
+				</div><!--
+				--><div class="cube">
+				run
+				</div><!--
+				--><div class="cube">
+				work
+				</div><!--
+				--><div class="cube">
+				play
+				</div>
+			</div>
+		</header>
+		<div id="content">
+			<div id="articles">
+
+				<%= yield %>
+
+			</div>
+			<aside>
+				<div id="loggedIn">
+					<% if user_signed_in? %>
+					  Hello, <%= current_user.name %>.<br>
+					  <%= link_to 'Sign out', session_path(session[:user_id]), method: :delete %>
+					<% else %>
+					  You are not signed in.<br>
+					<%= link_to 'Sign in', new_session_path %>
+					<% end %>
+				</div>
+
+				<h3>Heading</h3>
+				<ul>
+					<li><a href="#">Nav 1</a></li>
+					<li><a href="#">Nav 2</a></li>
+					<li><a href="#">Nav 3</a></li>
+				</ul>
+
+				<h3>Heading</h3>
+				<ul>
+					<li><a href="#">Nav 1</a></li>
+					<li><a href="#">Nav 2</a></li>
+					<li><a href="#">Nav 3</a></li>
+				</ul>
+			</aside>
+		</div>
+		<footer>
+			&copy 2013 Cylinder Studio
+		</footer>
+	</div>
 
 </body>
 </html>

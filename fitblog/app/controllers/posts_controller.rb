@@ -1,7 +1,14 @@
 class PostsController < ApplicationController
 
+  before_action :require_authentication
+  skip_before_action :require_authentication, only: [:index, :show]
+
   def index
     @posts = Post.all
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
   
   def new

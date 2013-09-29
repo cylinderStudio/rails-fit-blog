@@ -23,7 +23,9 @@ Fitblog::Application.routes.draw do
   #   resources :products
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :destroy]
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create]
+  end
 
   # Example resource route with options:
   #   resources :products do

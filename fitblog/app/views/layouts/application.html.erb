@@ -45,26 +45,26 @@
 			<aside>
 				<div id="loggedIn">
 					<% if user_signed_in? %>
-					  Hello, <%= current_user.name %>.<br>
-					  <%= link_to 'Sign out', session_path(session[:user_id]), method: :delete %>
+					  <p>Hello, <%= current_user.name %>.</p>
+					  <p><% if flash[:notice] %><p><%= flash[:notice] %><% else %><%= link_to 'Create a new post?', new_post_path %><% end %></p>
+					  <p><%= link_to 'Sign out', session_path(session[:user_id]), method: :delete %></p>
 					<% else %>
-					  You are not signed in.<br>
-					<%= link_to 'Sign in', new_session_path %>
+						<%= link_to 'Sign in', new_session_path %>
 					<% end %>
 				</div>
 
-				<h3>Heading</h3>
+				<h3>Tags</h3>
 				<ul>
-					<li><a href="#">Nav 1</a></li>
-					<li><a href="#">Nav 2</a></li>
-					<li><a href="#">Nav 3</a></li>
+					<li><a href="#">Tag 1</a></li>
+					<li><a href="#">Tag 2</a></li>
+					<li><a href="#">Tag 3</a></li>
 				</ul>
 
-				<h3>Heading</h3>
+				<h3>Recent Posts</h3>
 				<ul>
-					<li><a href="#">Nav 1</a></li>
-					<li><a href="#">Nav 2</a></li>
-					<li><a href="#">Nav 3</a></li>
+					<li><a href="#">July</a></li>
+					<li><a href="#">August</a></li>
+					<li><a href="#">September</a></li>
 				</ul>
 			</aside>
 		</div>

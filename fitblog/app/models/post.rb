@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-	validates :text, presence: true
-	has_many :comments
+	validates :body, presence: true
+	has_many :comments, dependent: :destroy
 end

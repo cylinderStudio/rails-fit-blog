@@ -24,7 +24,7 @@ Fitblog::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :destroy]
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
 
   # Example resource route with options:

@@ -6,12 +6,25 @@
 	<%= @post.body %>
 </article>
 
-<p><%= link_to 'Back to Posts', posts_path %></p>
+<p class="linkText"><%= link_to 'Back to Posts >', posts_path %></p>
 
 <% if user_signed_in? %>
-	Enter comment:<br>
+	<p>Enter comment:<br>
 	<%= form_for([@post, @post.comments.build]) do |f| %>
 		<%= f.text_area :text %><br>
 		<%= f.submit %>
-	<% end %>
+	<% end %></p>
 <% end %>
+
+<div id="comments">
+	<% unless @comments.empty? %>
+		<h4>Comments</h4>
+		<% @comments.each do |comment| %>
+			<p><%= User.find_by(comment.user_id).name %> said:<br>
+			<%= comment.text %>
+			<% if user_signed_in? %><br> 
+				<span class="delete"><%= link_to 'Delete comment', [comment.post, comment], method: :delete, data: {confirm: 'Sure about that?' } %></span>
+			<% end %></p>
+		<% end %>
+	<% end %>
+</div>

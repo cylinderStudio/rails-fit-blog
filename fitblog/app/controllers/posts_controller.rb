@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = Comment.where(post_id: params[:id]).order('created_at DESC')
   end
   
   def new
@@ -23,17 +24,17 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = 'Post saved.'
-      render 'new'
+      redirect_to root_url
     end
   end
 
   def update
     @post = Post.find(params[:id])
-    @post.title = params(post[:title])
-    @post.body = params(post[:body])
-    if @post.save
+    #@post.title = params(post[:title])
+    #@post.body = params(post[:body])
+    if @post.update(post_params)
       flash[:notice] = 'Post updated.'
-      render 'new'
+      redirect_to root_url
     end
   end
 
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.destroy
       flash[:notice] = 'Post deleted.'
-      render 'index'
+      redirect_to root_url
     end
   end
   

@@ -22,7 +22,7 @@
 		<% @comments.each do |comment| %>
 			<p><%= User.find_by(comment.user_id).name %> said:<br>
 			<%= comment.text %>
-			<% if user_signed_in? %><br> 
+			<% if user_signed_in? && current_user.is_admin %><br> 
 				<span class="delete"><%= link_to 'Delete comment', [comment.post, comment], method: :delete, data: {confirm: 'Sure about that?' } %></span>
 			<% end %></p>
 		<% end %>

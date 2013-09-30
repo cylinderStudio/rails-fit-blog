@@ -5,7 +5,7 @@
 			<time datetime="<%= post.post_date %>"><%= Date::MONTHNAMES[post.post_date.month] %> <%= post.post_date.day %>, <%= post.post_date.year %></time>
 		</div>
 		<p><%= post.body %></p>
-		<% if user_signed_in? %>
+		<% if user_signed_in? && current_user.is_admin %>
 			<%= link_to "Edit post", edit_post_path(post) %> |
 			<%= link_to "Delete post", post_path(post), method: :delete, data: {confirm: 'Sure about that?'} %>
 		<% end %>

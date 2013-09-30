@@ -37,6 +37,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'kaminari'
 
+gem 'fitgem'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

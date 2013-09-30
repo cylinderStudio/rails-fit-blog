@@ -3,7 +3,11 @@
 	<div class="timestamp">
 		<time datetime="<%= @post.post_date %>"><%= Date::MONTHNAMES[@post.post_date.month] %> <%= @post.post_date.day %>, <%= @post.post_date.year %></time>
 	</div>
-	<%= @post.body %>
+	<p><%= @post.body %></p>
+	<% if @steps && @sleep %>
+		<p>Fitbit steps reported: <%= @steps %> steps</p>
+		<p>Fitbit sleep reported: <%= @sleep %></p>
+	<% end %>
 </article>
 
 <p class="linkText"><%= link_to 'Back to Posts >', posts_path %></p>

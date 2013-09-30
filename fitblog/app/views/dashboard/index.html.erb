@@ -1,0 +1,5 @@
+<p><h4>Badges</h4></p>
+
+<% @badges.each do |badge| %>
+	<img src='<%= badge['image50px'] %>' /> achieved <%= pluralize(badge['timesAchieved'], 'time') %><br>
+<% end %>

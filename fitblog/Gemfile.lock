@@ -38,6 +38,8 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.1)
+    fitgem (0.8.0)
+      oauth
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -56,6 +58,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.0)
+    oauth (0.4.7)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -114,6 +117,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 4.0.0)
+  fitgem
   jbuilder (~> 1.2)
   jquery-rails
   kaminari

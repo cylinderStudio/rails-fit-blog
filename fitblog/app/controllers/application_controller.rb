@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
         redirect_to new_session_url
       end
     end
+
+    def fitbit_client
+      Fitgem::Client.new({:consumer_key => 'abc123', :consumer_secret => 'def456', :token => 'pqr161718', :secret => 'stu192021'})
+    end
 end

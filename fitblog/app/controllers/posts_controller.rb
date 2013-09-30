@@ -10,6 +10,12 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = Comment.where(post_id: params[:id]).order('created_at DESC')
+
+    @steps = fitbit_client.data_by_time_range("/activities/tracker/steps", {:base_date => "#{@post.post_date}", :period => "1d"})['activities-tracker-steps'][0]['value']
+    temp_total_minutes = fitbit_client.sleep_on_date(@post.post_date)['sleep'][0]['minutesAsleep'].to_i
+    temp_hours = temp_total_minutes/60
+    temp_minutes = temp_total_minutes % 60
+    @sleep = temp_hours.to_s + 'h ' + temp_minutes.to_s + 'm'
   end
   
   def new

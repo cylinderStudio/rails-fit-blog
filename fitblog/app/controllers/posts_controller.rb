@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   skip_before_action :require_authentication, only: [:index, :show]
 
   def index
-    @posts = Post.all.page params[:page]
+    @posts = Post.all.order('post_date DESC').page params[:page]
   end
 
   def show
